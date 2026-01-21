@@ -746,92 +746,110 @@ body {
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
-/* ===== 11. 响应式设计 ===== */
-@media (max-width: 992px) {
-    .hero-title { font-size: 2.8rem; }
-    .hero-subtitle { font-size: 1.3rem; }
-    .hero-button { font-size: 1.2rem; padding: 1.1rem 3rem; }
-    .section-title { font-size: 2.1rem; }
-    .modal { padding: 2.5rem; width: 95%; }
-}
-
-@media (max-width: 768px) {
-    .main-header .container { flex-direction: column; text-align: center; }
-    .main-nav { 
-        margin-top: 1.5rem; 
-        display: flex; 
-        flex-wrap: wrap; 
-        justify-content: center; 
+/* ===== 11. 【核心修改】禁用所有响应式样式，强制PC布局 ===== */
+/* 此段代码将覆盖之前所有媒体查询中的响应式规则 */
+@media (max-width: 992px), (max-width: 768px), (max-width: 480px) {
+    .container {
+        max-width: 1200px !important; /* 保持最大宽度 */
+        padding: 0 15px !important;
     }
-    .main-nav a { 
-        margin: 0.5rem 1rem; 
-        font-size: 1rem; 
+    .main-header .container {
+        flex-direction: row !important; /* 导航栏保持横排 */
+        text-align: left !important;
     }
-    .hero { height: 75vh; min-height: 450px; }
-    .hero-title { font-size: 2.3rem; line-height: 1.2; }
-    .hero-subtitle { font-size: 1.15rem; padding: 0 1rem; }
-    .hero-button { 
-        padding: 1rem 2.5rem; 
-        font-size: 1.1rem; 
-        margin-top: 1rem; 
+    .main-nav {
+        margin-top: 0 !important;
+        display: flex !important;
+        flex-wrap: nowrap !important; /* 不换行 */
     }
-    .content-section { padding: 2.2rem; margin: 4.5rem 0; }
-    .section-title { font-size: 1.9rem; }
-    .research-item { padding: 1.8rem; }
-    .research-item h3 { font-size: 1.4rem; }
-    .news-header { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        padding: 1.3rem;
+    .main-nav a {
+        margin: 0 0 0 2rem !important;
+        font-size: 1rem !important;
     }
-    .news-header h3 { 
-        margin: 0.8rem 0; 
-        font-size: 1.2rem; 
+    .hero {
+        height: 85vh !important;
+        min-height: 550px !important;
     }
-    .modal { padding: 2rem; }
-    .modal h2 { font-size: 2rem; }
-    .member-item { 
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
+    .hero-title {
+        font-size: 3.5rem !important;
+        line-height: normal !important;
     }
-    .member-avatar { 
-        margin-right: 0; 
-        margin-bottom: 1.5rem; 
-        width: 70px; 
-        height: 70px; 
-        font-size: 1.8rem;
+    .hero-subtitle {
+        font-size: 1.5rem !important;
+        padding: 0 !important;
     }
-    .search-box input { 
-        width: 100%; 
-        max-width: none; 
-        margin-bottom: 1rem; 
+    .hero-button {
+        padding: 1.2rem 3.5rem !important;
+        font-size: 1.3rem !important;
+        margin-top: 0 !important;
     }
-    .search-box button { 
-        width: 100%; 
-        margin-left: 0; 
-        margin-top: 0.5rem; 
+    .content-section {
+        padding: 3rem !important;
+        margin: 6rem 0 !important;
     }
-    .close-modal { 
-        top: -15px; 
-        right: -15px; 
-        width: 50px; 
-        height: 50px; 
-        line-height: 50px; 
-        font-size: 2rem; 
+    .section-title {
+        font-size: 2.4rem !important;
     }
-}
-
-@media (max-width: 480px) {
-    .logo h1 { font-size: 1.6rem; }
-    .hero-title { font-size: 1.9rem; }
-    .hero-subtitle { font-size: 1.05rem; }
-    .hero-button { 
-        padding: 0.9rem 2rem; 
-        font-size: 1rem; 
+    .section-title i {
+        margin-right: 15px !important;
     }
-    .section-title { font-size: 1.7rem; }
-    .modal h2 { font-size: 1.8rem; }
-    .modal { padding: 1.5rem; }
-    .member-detail h3 { font-size: 1.5rem; }
+    .research-item {
+        padding: 2.2rem !important;
+    }
+    .research-item h3 {
+        font-size: 1.6rem !important;
+    }
+    .news-header {
+        flex-direction: row !important;
+        align-items: center !important;
+        padding: 1.5rem 2rem !important;
+    }
+    .news-header h3 {
+        margin: 0 2rem !important;
+        font-size: 1.3rem !important;
+    }
+    .modal {
+        padding: 3.5rem !important;
+        width: 92% !important;
+    }
+    .modal h2 {
+        font-size: 2.4rem !important;
+    }
+    .member-item {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    .member-avatar {
+        margin-right: 2rem !important;
+        margin-bottom: 0 !important;
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 2.2rem !important;
+    }
+    .search-box input {
+        width: 70% !important;
+        max-width: 400px !important;
+        margin-bottom: 0 !important;
+    }
+    .search-box button {
+        width: auto !important;
+        margin-left: 1.5rem !important;
+        margin-top: 0 !important;
+    }
+    .logo h1 {
+        font-size: 1.9rem !important;
+    }
+    .member-detail h3 {
+        font-size: 1.8rem !important;
+    }
+    /* 保持关闭按钮位置和大小 */
+    .close-modal {
+        top: -20px !important;
+        right: -20px !important;
+        width: 60px !important;
+        height: 60px !important;
+        line-height: 60px !important;
+        font-size: 2.5rem !important;
+    }
 }
